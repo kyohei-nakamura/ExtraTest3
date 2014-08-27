@@ -30,6 +30,7 @@
          <property name="basenames">
          	<list>
          		<value>classpath:i18n/global</value>
+         		<value>classpath:i18n/org/sample/springmvc/extra/ExtraTest2</value>
          	</list>
          </property>
          <property name="fallbackToSystemLocale" value="false"/>
