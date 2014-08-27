@@ -2,7 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<name>MappingTest3</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -115,7 +114,7 @@
 		</dependency>        
 	</dependencies>
     <build>
-    	<finalName>MappingTest3</finalName>
+    	<finalName>ExtraTest3</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>
@@ -153,6 +152,6 @@
             </plugin>
         </plugins>
     </build>
-    <groupId>org.sample.springmvc.mapping</groupId>
-    <artifactId>MappingTest3</artifactId>
+    <groupId>org.sample.springmvc.extra</groupId>
+    <artifactId>ExtraTest3</artifactId>
 </project>

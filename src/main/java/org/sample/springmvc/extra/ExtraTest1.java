@@ -1,4 +1,4 @@
-package org.sample.springmvc.mapping;
+package org.sample.springmvc.extra;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
