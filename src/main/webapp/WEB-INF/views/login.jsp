@@ -9,7 +9,7 @@
 <body>
 <h1>SpringMVC localization example</h1>
 
-<form:form modelAttribute="userinfo" action="${appUrl}/validateUser">
+<form:form modelAttribute="userinfo" action="${appUrl}/user/validateUser">
 
     <form:errors path="username" cssClass="errors"/><p>
     <form:label path="username"><spring:message code="global.username"/></form:label>
@@ -21,10 +21,10 @@
 	
 </form:form>
 
-<a href="${appUrl}/locale?lang=en" >English<a>
-<a href="${appUrl}/locale?lang=de" >German<a>
-<a href="${appUrl}/locale?lang=fr" >France<a>
-<a href="${appUrl}/locale?lang=ja" >Japanese<a>
+<a href="${appUrl}/user/locale?lang=en" >English<a>
+<a href="${appUrl}/user/locale?lang=de" >German<a>
+<a href="${appUrl}/user/locale?lang=fr" >France<a>
+<a href="${appUrl}/user/locale?lang=ja" >Japanese<a>
 
  
 </body>

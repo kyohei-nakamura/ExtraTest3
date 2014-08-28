@@ -11,11 +11,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@RequestMapping("/user")
 public class ExtraTest2 {
     @Resource
     UserInfoValidator validator;
 
-    @RequestMapping(value={"/user/login", "/locale"}, method=RequestMethod.GET)
+    @RequestMapping(value={"/login", "/locale"}, method=RequestMethod.GET)
 	public String execute(Model model) {
         if (!model.containsAttribute("userinfo")) {
             model.addAttribute("userinfo", new UserInfo());
