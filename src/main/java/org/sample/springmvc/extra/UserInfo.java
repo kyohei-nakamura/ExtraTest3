@@ -1,7 +1,11 @@
 package org.sample.springmvc.extra;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class UserInfo {
+    @NotEmpty
     private String username;
+    @NotEmpty
     private String password;
     public String getUsername() {
         return username;

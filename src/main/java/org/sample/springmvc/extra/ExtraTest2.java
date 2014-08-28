@@ -1,6 +1,7 @@
 package org.sample.springmvc.extra;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,28 +14,30 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/user")
 public class ExtraTest2 {
-    @Resource
-    UserInfoValidator validator;
+    // @Resource
+    // UserInfoValidator validator;
 
-    @RequestMapping(value={"/login", "/locale"}, method=RequestMethod.GET)
-	public String execute(Model model) {
+    @RequestMapping(value = { "/login", "/locale" }, method = RequestMethod.GET)
+    public String execute(Model model) {
         if (!model.containsAttribute("userinfo")) {
             model.addAttribute("userinfo", new UserInfo());
         }
         return "login";
-	}
-    
-    @RequestMapping(value="/validateUser", method=RequestMethod.POST)
-	public ModelAndView validate(@ModelAttribute("userinfo") UserInfo userinfo, BindingResult bindingResult){
-        validator.validate(userinfo, bindingResult);
-        
-        if(bindingResult.hasErrors()) {
+    }
+
+    @RequestMapping(value = "/validateUser", method = RequestMethod.POST)
+    public ModelAndView validate(
+            @Valid @ModelAttribute("userinfo") UserInfo userinfo,
+            BindingResult bindingResult) {
+        // validator.validate(userinfo, bindingResult);
+
+        if (bindingResult.hasErrors()) {
             ModelAndView mav = new ModelAndView("login");
             mav.getModel().putAll(bindingResult.getModel());
-            
+
             return mav;
         }
 
-		return new ModelAndView("welcome");
-	}
+        return new ModelAndView("welcome");
+    }
 }
