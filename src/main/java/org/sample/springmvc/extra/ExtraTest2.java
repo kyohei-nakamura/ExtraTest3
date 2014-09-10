@@ -14,8 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/user")
 public class ExtraTest2 {
-    // @Resource
-    // UserInfoValidator validator;
+//    @Resource
+//    UserInfoValidator validate;
 
     @RequestMapping(value = { "/login", "/locale" }, method = RequestMethod.GET)
     public String execute(Model model) {
@@ -28,8 +28,9 @@ public class ExtraTest2 {
     @RequestMapping(value = "/validateUser", method = RequestMethod.POST)
     public ModelAndView validate(
             @Valid @ModelAttribute("userinfo") UserInfo userinfo,
+//            @ModelAttribute("userinfo") UserInfo userinfo,
             BindingResult bindingResult) {
-        // validator.validate(userinfo, bindingResult);
+//        validate.validate(userinfo, bindingResult);
 
         if (bindingResult.hasErrors()) {
             ModelAndView mav = new ModelAndView("login");
