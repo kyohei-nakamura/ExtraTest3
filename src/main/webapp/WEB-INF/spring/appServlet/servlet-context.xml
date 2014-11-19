@@ -25,17 +25,17 @@
 
     <context:component-scan base-package="org.sample.springmvc.extra" />
 
-    <bean id="messageSource"
-                 class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-         <property name="basenames">
-            <list>
-                <value>classpath:i18n/global</value>
-                <value>classpath:i18n/org/sample/springmvc/extra/ExtraTest2</value>
-                <value>classpath:i18n/validation/ValidationMessages</value>
-            </list>
-         </property>
-         <property name="fallbackToSystemLocale" value="false"/>
-    </bean>
+<!--     <bean id="messageSource" -->
+<!--                  class="org.springframework.context.support.ReloadableResourceBundleMessageSource"> -->
+<!--          <property name="basenames"> -->
+<!--             <list> -->
+<!--                 <value>classpath:i18n/global</value> -->
+<!--                 <value>classpath:i18n/org/sample/springmvc/extra/ExtraTest2</value> -->
+<!--                 <value>classpath:i18n/validation/ValidationMessages</value> -->
+<!--             </list> -->
+<!--          </property> -->
+<!--          <property name="fallbackToSystemLocale" value="false"/> -->
+<!--     </bean> -->
 
     <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
         <property name="validationMessageSource"><ref bean="messageSource" /></property>
@@ -55,4 +55,13 @@
         <property name="defaultLocale" value="en"/>
     </bean>
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/user/locale*" />
+	        <bean id="authorizationInterceptor" class="org.springframework.web.servlet.handler.UserRoleAuthorizationInterceptor">
+	            <property name="authorizedRoles" value="french"/>
+	        </bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+    
 </beans>
